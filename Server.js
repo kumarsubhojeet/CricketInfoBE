@@ -9,7 +9,6 @@ const app = express();
 app.use(cors());
 dbConnect()
 app.use(express.json());
-const port = 5500;
 
 app.get('/' , (req,res) => {
     res.send('Server is Running');
@@ -23,4 +22,4 @@ app.use("/api", userRoutes);
 // app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port , console.log(`Server is listening on ${port}`));
+app.listen(process.env.PORT || 5000 , console.log(`Server is listening on ${process.env.PORT}`));
